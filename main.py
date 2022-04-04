@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 app = Flask('app')
 
 @app.route('/')
-def hello_world():
+def main_remote_page():
   return render_template('start.html')
 
 @app.route('/buttonclick')
