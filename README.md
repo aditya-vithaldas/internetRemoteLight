@@ -45,14 +45,38 @@ The ajax call also does nothing overly spectacular, it just writes the user sele
     </script>
 ```
 
-What did that code do?
+The dynamic part of the server, also just has 3 main functions
+1. Load the main page (statif remote)
+2. Change the control (called when the user selects a remote option)
+3. get the control action (fetched from the pi)
 
-First we `import` the `Flask` class. An instance of this class will be our WSGI application.
+```from flask import Flask, render_template, request
+app = Flask('app')
 
-Next we create an instance of this class. The first argument is the name of the application’s module or package. `__name__` is a convenient shortcut for this that is appropriate for most cases. This is needed so that Flask knows where to look for resources such as templates and static files.
+@app.route('/')
+def main_remote_page():
+  return render_template('start.html')
 
-We then use the `route()` decorator to tell Flask what URL should trigger our function. In this case we use `/` routh, which is the default route of any website.
+@app.route('/buttonclick')
+def button_click():
+  name = request.args.get("function")
+  f = open("file.txt", "w")
+  f.write(name)
+  f.close()
+  return "file is written"
 
-The function returns the message we want to display in the user’s browser. The default content type is HTML, so HTML in the string will be rendered by the browser.
+@app.route('/getcontrol')
+def get_control():
+  f = open("file.txt", "r")
+  ret = f.read()
+  f.close()
+  return ret
+```
 
-To learn more, checkout the [official guide](https://flask.palletsprojects.com/en/2.0.x/quickstart/).
+So basically, to reiterate
+1. The flask action shows up the remote to the user, which at a very crude level looks something like this
+![alt text](images/remote.png)
+3. On selecting any option, the same is written onto the server local filesystem
+4. That is constantly pinged by the Raspberry client, which them decides whether to keep the light on or off. 
+
+Thats about it. 
