@@ -22,17 +22,29 @@ Software
 2. replit as the server (chose replit because of its free plan, and 0 setup cost of infra, specially for toy projects)
 3. The server on Replit was essentially a flask on python
 
-Lets start with the ONLY difference of this project from a typical light switch one. The remote. 
-```python
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route("/")
-def hello_world():
-    return "<h1>Hello, World!</h1>"
+Lets start with the ONLY difference of this project from a typical light switch one. The remote (start.html within templates).  
+```Two buttons, controlling the 2 actions, making an AJAX call on selection
+<button class="btn btn-primary btn-lg btn-block" onclick="UpdateStatus('start')">Start</button> <br>
+<button class="btn btn-primary btn-lg btn-block" onclick="UpdateStatus('stop')">STOP</button><br>
 ```
 	
+The ajax call also does nothing overly spectacular, it just writes the user selected option within a file (NOTE: This is a toy project, this would definitely. need a security setup, and a more scalable model if you plan to make this production ready
+```<script>
+      function UpdateStatus(Status)
+      {
+   
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+               // Typical action to be performed when the document is ready: E.g. window.alert("done")
+            }
+        };
+        xhttp.open("GET", "/buttonclick?function=" + Status, true);
+        xhttp.send();
+      }
+    </script>
+```
+
 What did that code do?
 
 First we `import` the `Flask` class. An instance of this class will be our WSGI application.
