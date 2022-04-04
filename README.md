@@ -4,7 +4,7 @@ As a maker, would you want to create something that allows you to control someth
 
 For most users getting into electronics, one of the first projects that they do, is controlling an LED with a battery, to get a basic undertanding of the circular circuit). Sommething like this
 
-![alt text](images/101.png)
+![alt text](images/img.png)
 
 What we are attempting to do, is just a minor variation of #2. We would control the switch off the internet, with a simple webpage, with basic controls. From a framework standpoint, the objective would be to make the same as flexible as possible, with the ability to add as many controls (E.g. up, down), for any number of applications (robotics, fans etc). 
 
@@ -12,7 +12,17 @@ But for now, all we care about, is a "start" and a "stop" options.
 
 So here goes. 
 
-Client code (Raspberry Pi sniffer)
+We have aimed to keep the setup as simple as possible, something that enables us to get started in 10-15 mins max with the required setup as well as wiring. 
+
+Hardware
+1. Raspberry Pi 4 Model B with 4GB memory
+
+Software
+1. Thonny as the IDE (default choice on the Pi)
+2. replit as the server (chose replit because of its free plan, and 0 setup cost of infra, specially for toy projects)
+3. The server on Replit was essentially a flask on python
+
+Lets start with the ONLY difference of this project from a typical light switch one. The remote. 
 ```python
 from flask import Flask
 
