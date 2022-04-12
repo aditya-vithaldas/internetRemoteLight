@@ -8,7 +8,8 @@ For most users getting into electronics, one of the first projects that they do,
 
 What we are attempting to do, is just a minor variation of #2. We would control the switch off the internet, with a simple webpage, with basic controls. From a framework standpoint, the objective would be to make the same as flexible as possible, with the ability to add as many controls (E.g. up, down), for any number of applications (robotics, fans etc). 
 
-But for now, all we care about, is a "start" and a "stop" options. 
+But for now, all we care about, is a "start" and a "stop" options (ok, maybe a left and a right too)
+https://youtu.be/UnO8IR0WGYY 
 
 So here goes. 
 
@@ -79,4 +80,9 @@ So basically, to reiterate
 3. On selecting any option, the same is written onto the server local filesystem
 4. That is constantly pinged by the Raspberry client, which them decides whether to keep the light on or off. 
 
-Thats about it. 
+A little about the wiring
+https://youtu.be/sgFbvDaM64E
+
+The wiring actually, is pretty straightforward. 
+I have just used pins 2, 3, 4 for one motor. And 
+And 
