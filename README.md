@@ -86,4 +86,13 @@ https://youtu.be/sgFbvDaM64E
 
 The wiring actually, is pretty straightforward. 
 I have just used pins 2, 3, 4 for one motor. And 
-And 
+And 14, 15, 18 for the next. 
+
+''' I did have some problems in pin selection for a while, and while it finally did work with this selection, i didnt get to the bottom of it. Something for another day ''
+
+So this one is done for the moment. Main problems, I need to try going forware are. 
+1. Move it to a smaller board, a nodemcu or Pico, so as to save space. the place looks like a mess
+2. Preferably a smaller battery, and figure the housing as well. Placement in a manner that it "stays"
+3. Stronger motors, n20 or a 6mm 200RPM 12v motor. To see how they play out
+4. Smaller battery power bank. Battery is still something I havent figured. Ideally, that 9v for motor, and 4 * 1.5 should have worked for the the main board. It didnt.
+5. Then add in the camera (for true remote) and maybe basic self driving in the house. 
